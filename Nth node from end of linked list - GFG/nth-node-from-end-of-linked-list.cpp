@@ -42,23 +42,40 @@ public:
     int getNthFromLast(Node *head, int n)
     {
            // Your code here
-           int count=0;
-           Node *p=head;
-           Node *q=head;
-           while(p!=NULL)
-           {
-               count++;
-               p=p->next;
-           }
-           if(n>count)
-           {
-               return -1;
-           }
-           for(int i=0;i<count-n;i++)
-           {
-               q=q->next;
-           }
-           return q->data;
+        //   int count=0;
+        //   Node *p=head;
+        //   Node *q=head;
+        //   while(p!=NULL)
+        //   {
+        //       count++;
+        //       p=p->next;
+        //   }
+        //   if(n>count)
+        //   {
+        //       return -1;
+        //   }
+        //   for(int i=0;i<count-n;i++)
+        //   {
+        //       q=q->next;
+        //   }
+        //   return q->data;
+        //method2
+        Node *p=head;
+        for (int i=0;i<n;i++)
+        {
+            if(p==NULL)return -1;
+            p=p->next;
+        }
+        Node*q=head;
+        while(p!=NULL)
+        {
+            q=q->next;
+            p=p->next;
+        }
+        if(q!=NULL)
+        {
+            return q->data;
+        }
     }
 };
 
